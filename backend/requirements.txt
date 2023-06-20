@@ -1,44 +1,43 @@
-argon2-cffi==21.3.0
-argon2-cffi-bindings==21.2.0
+argon2-cffi
+argon2-cffi-bindings
 
-boto3==1.23.92
-botocore=1.27.92
+boto3
+botocore
 
-channels==3.0.5
-channels-redis==3.4.1
+channels
+channels-redis
 
-Django==3.2.16
-djangorestframework-api-response==0.0.30
+Django
+djangorestframework-api-response
 
-django-cors-headers==3.13.0
-django-environ==0.9.0
-django-redis==5.2.0
+django-cors-headers
+django-environ
+django-redis
 
-django-storages==1.13.1
-jsonpickle==3.0.1
+django-storages
+jsonpickle
 
-djangorestframework==3.14.0
+djangorestframework
 
-djangorestframework-simplejwt==4.8.0
-djoser==2.1.0
-PyJWT==2.5.0
-social-auth-app-django==4.0.0
-social-auth-core==4.3.0
+djangorestframework-simplejwt
+djoser
+PyJWT
+social-auth-app-django
+social-auth-core
 
-Pillow==9.2.0
-mutagen==1.46.0
+Pillow
+mutagen
 
-psycopg2==2.9.4
+psycopg2
 
-python-slugify==6.1.2
+python-slugify
 
 
-web3==5.31.3
-eth-account==0.5.9
+web3
+eth-account
 
-whitenoise==6.2.0
-uvicorn==0.20.0
+whitenoise
+uvicorn
 
-rsa==4.9
-LWE4==0.0.8.2
-
+rsa
+LWE4
