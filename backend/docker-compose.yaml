@@ -1,34 +1,34 @@
-version: '2.9'
+version: '3.8'
 services:
   #Django App
-  backend:
-  container_name: django
-  build: .
-  volumes:
-    - .:/app
-  ports:
-    - 8000:8000
-  depends_on:
-    - db
-    - redis
+  brmz_backend:
+    container_name: django
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - brmz_db
+      - brmz_redis
 
-#Database (Postgres)
-db:
-  image: postgres
-  container_mame: postgressql
-  restart: always
-  environment:
-    POSTGRES_DB: ninerogues_db
-    POSTGRES_USER: ninerogues
-    POSTGRES_PASSWORD: postgres
-  ports:
-    - 5432:5432
-  volumes:
-    - .dbdata:/var/lib/postgresql
+  #Database (Postgres)
+  brmz_db:
+    image: postgres
+    container_name: postgressql
+    restart: always
+    environment:
+      POSTGRES_DB: brmz_db
+      POSTGRES_USER: brmz
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - .dbdata:/var/lib/postgresql
 
-#Redis
-redis:
-  image: redis
-  container_mame: Redis
-  ports:
-    - 6379:6379
+  #Redis
+  brmz_redis:
+    image: redis
+    container_name: Redis
+    ports:
+      - 6379:6379
