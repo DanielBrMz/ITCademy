@@ -254,3 +254,44 @@ DJOSER = {
         'username_reset': 'email/username_reset.html',
     }
 }
+
+
+FILE_UPLOAD_PERMISSIONS = 0o640
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+POLYGON_RPC = env('POLYGON_RPC')
+ETHEREOUM_RPC = env('ETHEREOUM_RPC')
+
+if not DEBUG:
+    # CSRF_COOKIE_DOMAIN = os.environ.get('CSRF_COOKIE_DOMAIN_DEPLOY')
+    ALLOWED_HOSTS = env.list('ALLOWED_HOSTS_DEPLOY')
+    CORS_ORIGIN_WHITELIST = env.list('CORS_ORIGIN_WHITELIST_DEPLOY')
+    CSRF_TRUSTED_ORIGINS = env.lists('CSRF_TRUSTED_ORIGINS_DEPLOY')
+
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    SECURE_SSL_REDIRECT = True
+
+    # SMTP.com configuration
+    EMAIL_HOST = os.environ.get('EMAIL_HOST')
+    EMAIL_PORT = int(os.environ.get('EMAIL_PORT'))
+
+    # Your SMTP.com sender account credentials
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
+    # Use TLS when connection to the SMTP server
+    EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS') == "TRUE"
+
+    # Default "from" adress for sending emails
+    DEFAULT_FROM_EMAIL = "DanielBrMz <noreply@danielbrmz.com>"
+
+# django-ckeditor will not work with s3 through django-storages without this
+AWS_QUERYSTRING_AUT = False
+
+# AWS settings
+AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
+
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.S3.US-east-2.amazonaws."
