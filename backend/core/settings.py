@@ -36,6 +36,20 @@ CORS_ALLOW_REQUESTS_FROM_NO_REFERER = True
 CORS_DEBUG = True
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
+#LOGGING = {
+#    "version": 1,
+#    "disable_existing_loggers": False,
+#    "handlers": {
+#        "console": {"class": "logging.StreamHandler"},
+#    },
+#    "loggers": {
+#        "django": {
+#            "handlers": ["console"],
+#            "level": "DEBUG",
+#        },
+#    },
+#}
+
 
 # Application definition
 
@@ -137,7 +151,7 @@ PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',       
 ]
 
 
@@ -225,12 +239,12 @@ DJOSER = {
         "http://localhost:8000/google",
         "http://localhost:8000/facebook",
     ],
-    'SERIALIZERS': {
+    """ 'SERIALIZERS': {
         'user_create': 'users.serializers.UserCreateSerializer',
         'user': 'apps.users.serializers.UserSerializer',
         'curretn_user': 'apps.users.serializers.UserSerializer',
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
-    },
+    }, """
     'TEMPLATES': {
         'activation': 'email/activation.html',
         'confirmation': 'email/confirmation.html',
